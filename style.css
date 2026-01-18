@@ -1,0 +1,302 @@
+/* ===============================
+   ERDENE NUTAG – CORE STYLE
+   Mobile-first / PWA ready
+================================ */
+
+/* RESET + BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  height: 100%;
+}
+
+/* Text copy-оос хамгаална */
+.no-select,
+nav,
+button,
+.nav-item {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===============================
+   APP LAYOUT
+================================ */
+
+#app {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: #fff;
+  padding: 14px 16px;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+header small {
+  opacity: 0.85;
+  font-size: 12px;
+}
+
+/* ===============================
+   NAVIGATION
+================================ */
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.nav-item span {
+  display: block;
+  font-size: 18px;
+}
+
+.nav-item.active {
+  color: #0f766e;
+  font-weight: 600;
+  border-bottom: 2px solid #14b8a6;
+}
+
+/* ===============================
+   PAGES / SECTIONS
+================================ */
+
+.page {
+  display: none;
+  padding: 16px;
+}
+
+.page.active {
+  display: block;
+}
+
+.page h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* ===============================
+   COMMUNITY (Facebook group vibe)
+================================ */
+
+.post {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  margin-right: 8px;
+}
+
+.post-user {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.post-content {
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===============================
+   MARKETPLACE
+================================ */
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.filters select,
+.filters button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+.filters button {
+  background: #14b8a6;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+.market-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.market-item h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.market-item small {
+  color: #666;
+}
+
+/* ===============================
+   PROFILE / MY ZONE
+================================ */
+
+.profile-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.profile-box h3 {
+  margin-bottom: 6px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 14px;
+}
+
+.profile-actions button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: #f1f5f9;
+  font-size: 12px;
+}
+
+/* ===============================
+   BUTTONS (GLOBAL)
+================================ */
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+
+.empty {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  padding: 24px 0;
+}
+
+/* ===============================
+   FOOTER (optional later)
+================================ */
+
+footer {
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+}
+
+/* ===============================
+   DARK MODE (future ready)
+================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0b1220;
+    color: #e5e7eb;
+  }
+
+  #app {
+    background: #0f172a;
+  }
+
+  .post,
+  .market-item,
+  .profile-box {
+    background: #111827;
+  }
+
+  .main-nav {
+    background: #020617;
+    border-color: #1f2937;
+  }
+}
