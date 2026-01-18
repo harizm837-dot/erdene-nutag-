@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <!-- ================= META ================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <title>ЭРДЭНЭ НУТАГ</title>
+
+  <!-- ================= PWA ================= -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- ================= STYLE ================= -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ================= SEO (BASIC) ================= -->
+  <meta name="description" content="Монгол нутгийнхан, зах, мэдээ, community нэг дор" />
+</head>
+
+<body>
+
+<!-- =================================================
+  GLOBAL APP WRAPPER
+================================================= -->
+<div id="app-wrapper">
+
+  <!-- ================= HEADER ================= -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo">🌍 ЭРДЭНЭ НУТАГ</div>
+      <div class="tagline">Нутгийнхан · Зах · Мэдээ · Үйл явдал</div>
+    </div>
+
+    <div class="header-right">
+      <!-- future -->
+      <button class="icon-btn" id="btn-notification">🔔</button>
+      <button class="icon-btn" id="btn-search">🔍</button>
+    </div>
+  </header>
+
+  <!-- ================= GLOBAL FILTER BAR ================= -->
+  <!-- Аймаг / Сум filter – бүх page-д ашиглагдана -->
+  <section class="global-filter">
+    <select id="global-aimag">
+      <option value="">Аймаг сонгох</option>
+    </select>
+
+    <select id="global-sum">
+      <option value="">Сум сонгох</option>
+    </select>
+
+    <button id="btn-apply-location">📍</button>
+  </section>
+
+  <!-- ================= MAIN APP ================= -->
+  <main id="app">
+    <!--
+      ⚠️ ЭНД ЯМАР Ч STATIC HTML БИЧИХГҮЙ
+      БҮХ PAGE app.js-ЭЭР RENDER ХИЙГДЭНЭ
+
+      Pages:
+      - home
+      - community
+      - market
+      - event
+      - profile
+      - admin (future)
+    -->
+  </main>
+
+  <!-- ================= FLOATING ACTION BUTTON ================= -->
+  <!-- Context-aware: post / item / event -->
+  <button id="fab" title="Нэмэх">
+    ➕
+  </button>
+
+  <!-- ================= BOTTOM NAV ================= -->
+  <nav class="bottom-nav">
+    <button onclick="go('home')" id="nav-home">
+      <span class="icon">🏠</span>
+      <span class="label">Нүүр</span>
+    </button>
+
+    <button onclick="go('community')" id="nav-community">
+      <span class="icon">👥</span>
+      <span class="label">Нутгийнхан</span>
+    </button>
+
+    <button onclick="go('market')" id="nav-market">
+      <span class="icon">🛒</span>
+      <span class="label">Нутгийн Зах</span>
+    </button>
+
+    <button onclick="go('event')" id="nav-event">
+      <span class="icon">🎉</span>
+      <span class="label">Үйл явдал</span>
+    </button>
+
+    <button onclick="go('profile')" id="nav-profile">
+      <span class="icon">👤</span>
+      <span class="label">Миний булан</span>
+    </button>
+  </nav>
+
+</div>
+
+<!-- =================================================
+  TEMPLATES (HIDDEN, JS USES THEM)
+================================================= -->
+
+<!-- ================= POST TEMPLATE ================= -->
+<template id="tpl-post">
+  <div class="card post">
+    <div class="post-header">
+      <div class="author">👤 <span class="author-name"></span></div>
+      <div class="location small"></div>
+    </div>
+
+    <div class="post-content"></div>
+
+    <div class="post-actions">
+      <button class="btn-like">❤️ <span class="like-count">0</span></button>
+      <button class="btn-comment">💬</button>
+      <button class="btn-fav">⭐</button>
+    </div>
+
+    <div class="post-comments"></div>
+  </div>
+</template>
+
+<!-- ================= MARKET ITEM TEMPLATE ================= -->
+<template id="tpl-market-item">
+  <div class="card market-item">
+    <div class="item-title"></div>
+    <div class="item-price"></div>
+    <div class="item-location small"></div>
+
+    <div class="item-actions">
+      <button class="btn-fav">⭐ Дуртай</button>
+      <button class="btn-contact">📞 Холбоо барих</button>
+    </div>
+  </div>
+</template>
+
+<!-- ================= EVENT TEMPLATE ================= -->
+<template id="tpl-event">
+  <div class="card event">
+    <div class="event-title"></div>
+    <div class="event-date"></div>
+    <div class="event-location small"></div>
+    <div class="event-actions">
+      <button>❤️</button>
+      <button>📅</button>
+    </div>
+  </div>
+</template>
+
+<!-- =================================================
+  FOOTER (optional / future)
+================================================= -->
+<footer class="app-footer">
+  <small>
+    © 2026 Эрдэнэ Нутаг · MVP → Ecosystem
+  </small>
+</footer>
+
+<!-- =================================================
+  SCRIPTS
+================================================= -->
+<script src="data.js"></script>
+<script src="ai.js"></script>
+<script src="app.js"></script>
+
+<script>
+  // ================= SERVICE WORKER =================
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js");
+    });
+  }
+</script>
+
+</body>
+</html>
